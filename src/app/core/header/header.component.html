@@ -1,0 +1,31 @@
+<nz-row nzType="flex" nzJustify="end">
+  <nz-col nzSpan="24">
+    <nz-row nzType="flex" nzJustify="end">
+      <span class="text-secondary">
+        welcome
+        <span class="text-primary font-weight-bold mr-2">
+          "username"
+        </span>
+      </span>
+      <span>
+              <nz-avatar [nzSize]="45" nzIcon="user" nz-dropdown nzTrigger="hover" [nzDropdownMenu]="menu"></nz-avatar>
+      </span>
+      <nz-dropdown-menu #menu="nzDropdownMenu">
+        <ul nz-menu nzSelectable>
+          <li nz-menu-item>
+            <i nz-icon nzType="poweroff"></i>
+            settings
+          </li>
+          <li nz-menu-item>
+            <i nz-icon nzType="poweroff"></i>
+            change password
+          </li>
+          <li nz-menu-item>
+            <i nz-icon nzType="poweroff"></i>
+            logout
+          </li>
+        </ul>
+      </nz-dropdown-menu>
+    </nz-row>
+  </nz-col>
+</nz-row>

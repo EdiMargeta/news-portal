@@ -1,0 +1,8 @@
+<ul nz-menu nzMode="horizontal" style="text-align: center; font-size: 18px;">
+  <ng-container *ngFor="let item of mockUrl">
+    <li nz-menu-item [routerLink]="item?.url">
+      <span>{{ item.name }}</span>
+    </li>
+  </ng-container>
+</ul>
+<router-outlet></router-outlet>

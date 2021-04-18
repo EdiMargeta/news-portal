@@ -1,0 +1,33 @@
+    <nz-row>
+      <nz-col [nzLg]="8" [nzMd]="12" [nzSm]="24" *ngFor="let image of bodyImages">
+        <div class="body-image" >
+          <div class="wrapper">
+            <div class="card radius shadowDepth1">
+              <div class="card__image border-tlr-radius">
+                <img src="{{image.image}}">
+              </div>
+              <div class="card__content card__padding">
+                <div class="card__share">
+                  <a id="share" class="share-toggle share-icon" href="#"></a>
+                </div>
+                <div class="card__meta">
+                  <p>17th March</p>
+                </div>
+                <article class="card__article">
+                  <h2><a href="#">Material Design Card - For Blog Post Article</a></h2>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus harum...</p>
+                </article>
+              </div>
+              <div class="card__action">
+                <div class="card__author">
+                  <div class="card__author-content">
+                    By <a href="#">John Doe</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </nz-col>
+    </nz-row>

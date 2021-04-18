@@ -1,0 +1,26 @@
+@media screen and (max-width: 524px) {
+  app-choose-language {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 427px) {
+  .text-secondary {
+    display: none;
+  }
+}
+
+img {
+  max-width: 100% !important;
+  max-height: 25% !important;
+}
+
+i {
+  padding: 12px 0;
+  color: white;
+  font-size: 36px;
+}
+
+li {
+  padding-right: 30px
+}

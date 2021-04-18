@@ -1,0 +1,33 @@
+<nz-layout class="min-h-100 w-100">
+  <nz-sider class="shadow-none h-100"
+            nzCollapsible
+            nzWidth="200px"
+            nzBreakpoint="md"
+            [(nzCollapsed)]="isCollapsed"
+            [nzTrigger]="null">
+    <app-side-menu [isCollapsed]="isCollapsed"></app-side-menu>
+  </nz-sider>
+  <nz-layout>
+    <nz-header class="bg-white px-4">
+      <nz-row>
+        <nz-col nzSpan="6">
+          <span (click)="isCollapsed = !isCollapsed">
+              <i nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"></i>
+          </span>
+        </nz-col>
+        <nz-col nzSpan="18">
+          <app-header></app-header>
+        </nz-col>
+      </nz-row>
+    </nz-header>
+  <nz-layout>
+    <nz-spin [nzSpinning]="spinnerNumber > 0" nzTip="Loading..." nzSize="large" class="w-100">
+      <nz-content>
+        <router-outlet></router-outlet>
+      </nz-content>
+    </nz-spin>
+  </nz-layout>
+  </nz-layout>
+
+</nz-layout>
+

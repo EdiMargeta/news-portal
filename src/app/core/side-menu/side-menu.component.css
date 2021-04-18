@@ -1,0 +1,33 @@
+nz-card {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 22px;
+  color: #F7F5FF;
+  font-weight: 300;
+  text-decoration: none solid rgb(68, 68, 68);
+  font-variant: small-caps;
+}
+
+@media screen and (max-width: 768px) {
+  nz-card {
+    display: none;
+  }
+}
+
+ul {
+  background-color: transparent !important;
+}
+
+
+.col-md-6 {
+  width: 50%;
+}
+
+.post-bottom-content {
+  position: relative;
+  background: #ffffff;
+  margin-bottom: 60px;
+  margin-left: 13px;
+  margin-right: 13px;
+  padding-bottom: 60px;
+  min-height: 465px;
+}

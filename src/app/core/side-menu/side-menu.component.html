@@ -1,0 +1,26 @@
+<nz-row nzJustify="center" style="padding-top: 6px ">
+<nz-col>
+  <img src="../../../assets/images/losinj-grb.png" style="max-height: 50px!important;">
+</nz-col>
+</nz-row>
+<ul nz-menu style="margin-top: 4px" nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
+  <ng-container *ngFor="let item of menuItems">
+    <li nz-menu-divider *ngIf="!item.title"></li>
+    <li nz-menu-item [nzMatchRouter]="true" [routerLink]="item?.routerLink || null"
+        *ngIf="item.title && !item?.children?.length">
+      <span nz-row nzType="flex" nzJustify="start" nzAlign="middle">
+        <em nz-col nzSpan="3" nz-icon [nzType]="item.icon" *ngIf="item.icon"></em>
+        <span nz-col nzSpan="12">{{ item.title }}</span>
+      </span>
+    </li>
+    <li nz-submenu *ngIf="item.title && item.children?.length">
+      <span title nz-row nzType="flex" nzJustify="start" nzAlign="middle">
+        <em nz-col nzSpan="3" nz-icon [nzType]="item.icon" *ngIf="item.icon"></em>
+        <span nz-col nzSpan="12">{{ item.title  }}</span>
+      </span>
+      <ul>
+      </ul>
+    </li>
+  </ng-container>
+</ul>
+
