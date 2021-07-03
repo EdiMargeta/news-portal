@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {NewsArticleModel} from '../../../../../models/news/model/news-article.model';
 
 @Component({
   selector: 'app-main-body',
@@ -6,7 +7,7 @@ import {Component, Input, OnInit} from '@angular/core';
   styleUrls: ['./main-body.component.css']
 })
 export class MainBodyComponent implements OnInit {
-  @Input() bodyImages: any[];
+  @Input() bodyImages: NewsArticleModel[];
 
   constructor() { }
 

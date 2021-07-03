@@ -1,0 +1,14 @@
+<div class="clearfix">
+  <nz-upload
+    class="upload-list-inline"
+    nzAction="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+    nzListType="picture"
+    [(nzFileList)]="previewImage"
+    [nzDisabled]="previewImage?.length >= 1"
+    (change)="emitImage()"
+  >
+    <button nz-button>
+      <span><i nz-icon nzType="upload"></i> Upload</span>
+    </button>
+  </nz-upload>
+</div>

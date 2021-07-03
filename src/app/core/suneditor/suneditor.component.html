@@ -1,0 +1,63 @@
+<form nz-form [formGroup]="form" nzLayout="vertical" (ngSubmit)="onSave()">
+  <nz-row [nzGutter]="12" style="padding: 0 20px 0 20px">
+
+    <nz-col [nzSpan]="12">
+      <nz-form-item>
+        <nz-form-label nzRequired>Headline</nz-form-label>
+        <nz-form-control nzHasFeedback nzValidatingTip="Headline" [nzErrorTip]="userErrorTpl">
+          <input nz-input formControlName="headline" placeholder="Input headline" />
+          <ng-template #userErrorTpl let-control>
+            <ng-container *ngIf="control.hasError('required')">
+              Please input headline!
+            </ng-container>
+          </ng-template>
+        </nz-form-control>
+      </nz-form-item>
+    </nz-col>
+
+    <nz-col [nzSpan]="12">
+      <nz-form-item>
+        <nz-form-label nzRequired>Description</nz-form-label>
+        <nz-form-control  nzHasFeedback [nzErrorTip]="emailErrorTpl">
+          <input nz-input formControlName="description" placeholder="Input description" />
+          <ng-template #emailErrorTpl let-control>
+            <ng-container *ngIf="control.hasError('required')">
+              Please input your description!
+            </ng-container>
+          </ng-template>
+        </nz-form-control>
+      </nz-form-item>
+    </nz-col>
+
+    <nz-col [nzSpan]="12">
+      <nz-form-item>
+        <nz-form-label  nzFor="Kategorija" nzRequired>Kategorija</nz-form-label>
+        <nz-form-control nzErrorTip="Please select your category!">
+          <nz-select
+            id="category"
+            formControlName="category"
+            nzPlaceHolder="Select a option and change input text above"
+          >
+            <nz-option  *ngFor="let category of categories" [nzValue]="category" [nzLabel]="category"></nz-option>
+          </nz-select>
+        </nz-form-control>
+      </nz-form-item>
+    </nz-col>
+  </nz-row>
+  <nz-row nzJustify="center">
+    <nz-col style="padding: 20px 20px 20px 20px">
+      <nz-form-item>
+        <nz-form-control [nzSpan]="12" [nzOffset]="5">
+          <button nz-button nzType="primary">Submit</button>
+        </nz-form-control>
+      </nz-form-item>
+    </nz-col>
+    <nz-col>
+      <app-image-upload (uploadedImage)="storeUploadedImage($event)"></app-image-upload>
+    </nz-col>
+  </nz-row>
+</form>
+
+<textarea style="width: 100%; height: 500px" id="sun-editor-editable"  [(ngModel)]="previewEditor">Hi</textarea>
+<div>1{{previewEditor}}1</div>
+

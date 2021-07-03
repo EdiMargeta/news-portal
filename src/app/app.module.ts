@@ -7,9 +7,11 @@ import {registerLocaleData} from '@angular/common';
 import en from '@angular/common/locales/en';
 import {HttpClientModule} from '@angular/common/http';
 import {NzLayoutModule} from 'ng-zorro-antd/layout';
-import {AppCommonModule} from './core/app-core.module';
 import {NzGridModule, NzSpinModule} from 'ng-zorro-antd';
 import {IconsProviderModule} from './icons-provider.module';
+import {AppCoreModule} from './core/app-core.module';
+import {QuillModule} from 'ngx-quill';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 registerLocaleData(en);
 
@@ -23,9 +25,12 @@ registerLocaleData(en);
     IconsProviderModule,
     HttpClientModule,
     NzLayoutModule,
-    AppCommonModule,
+    AppCoreModule,
     NzGridModule,
     NzSpinModule,
+    QuillModule.forRoot(),
+    BrowserAnimationsModule
+
   ],
 
   providers: [
