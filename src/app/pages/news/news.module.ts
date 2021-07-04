@@ -10,10 +10,12 @@ import {MainBodyComponent} from './components/abstract-news/main-body/main-body.
 import {SidebarComponent} from './components/abstract-news/sidebar/sidebar.component';
 import {QuillModule} from 'ngx-quill';
 import {NewsProvider} from './providers/news.provider';
+import {CreateNewsComponent} from './components/abstract-news/news-models/create-news/create-news.component';
+import { AllNewsComponent } from './components/all-news/all-news.component';
 
 
 @NgModule({
-  declarations: [NewsComponent, AbstractNewsComponent, MainCoverComponent, MainBodyComponent, SidebarComponent],
+  declarations: [NewsComponent, AbstractNewsComponent, MainCoverComponent, MainBodyComponent, SidebarComponent, CreateNewsComponent, AllNewsComponent],
   exports: [
     AbstractNewsComponent
   ],

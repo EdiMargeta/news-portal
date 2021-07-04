@@ -1,20 +1,36 @@
-import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import {ApiPageCommand, ApiResponse} from '../../../../models/base/api.model';
+import {NewsFilterCommand} from '../../../../models/news/command/filter/news-filter.command';
+import {finalize, takeUntil} from 'rxjs/operators';
 import {NewsArticleModel} from '../../../../models/news/model/news-article.model';
 import {PaginationSortModel} from '../../../../models/base/pagination-sort.model';
 import {SpinnerProvider} from '../../../../core/providers/spinner.provider';
 import {NewsProvider} from '../../providers/news.provider';
-import {ApiPageCommand, ApiResponse} from '../../../../models/base/api.model';
-import {NewsFilterCommand} from '../../../../models/news/command/filter/news-filter.command';
-import {finalize, takeUntil} from 'rxjs/operators';
+import {ActivatedRoute, Router} from '@angular/router';
 import {MainComponent} from '../../../../core/main.component';
-import {ActivatedRoute} from '@angular/router';
 
 @Component({
-  selector: 'app-abstract-news',
-  templateUrl: './abstract-news.component.html',
-  styleUrls: ['./abstract-news.component.css']
+  selector: 'app-all-news',
+  templateUrl: './all-news.component.html',
+  styleUrls: ['./all-news.component.css']
 })
-export class AbstractNewsComponent extends MainComponent implements OnInit {
+export class AllNewsComponent extends MainComponent implements OnInit {
+  activeSection: string;
+  mockNews = [
+    {name: 'News1'},
+    {name: 'News2'},
+    {name: 'News2'},
+    {name: 'News3'},
+    {name: 'News4'},
+  ];
+  mockUrl = [
+    {url: 'tourism', name: 'Turizam'},
+    {url: 'politics', name: 'Politika'},
+    {url: 'culture', name: 'Kultura'},
+    {url: 'inheritance', name: 'Baština'},
+    {url: 'sport', name: 'Sport'},
+    {url: 'entertainment', name: 'Zabava'}
+  ];
   array = [1, 2, 3, 4];
   // @Input() newsArticles: NewsArticleModel[];
   imageSlider = [
@@ -49,29 +65,20 @@ export class AbstractNewsComponent extends MainComponent implements OnInit {
 
   pagination: PaginationSortModel = PaginationSortModel.createDefaultPaginationSortCommand();
   newsArticles: NewsArticleModel[];
-  activeCategory: string;
 
   constructor(private spinnerProvider: SpinnerProvider,
               private newsProvider: NewsProvider,
-              private activatedRoute: ActivatedRoute) {
+              private activatedRoute: ActivatedRoute,
+              private router: Router) {
     super();
   }
 
   ngOnInit(): void {
-    this.activatedRoute.queryParams.subscribe(params => {
-      if (params.category) {
-        this.activeCategory = params.category;
-        this.fetchNews();
-      }
-      console.log('params');
-      console.log(params.category);
-      // In a real app: dispatch action to load the details here.
-    });
   }
 
   fetchNews(): void {
     this.spinnerProvider.showSpinner();
-    this.newsProvider.fetchNews(new ApiPageCommand(this.pagination, NewsFilterCommand.fromObject({category: this.activeCategory})))
+    this.newsProvider.fetchNews(new ApiPageCommand(this.pagination, NewsFilterCommand.fromObject({category: 'politics'})))
       .pipe(
         takeUntil(this.unsubscribe),
         finalize(() => {
@@ -89,5 +96,4 @@ export class AbstractNewsComponent extends MainComponent implements OnInit {
         }
       });
   }
-
 }

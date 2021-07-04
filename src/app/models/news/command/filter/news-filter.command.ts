@@ -4,7 +4,7 @@ export class NewsFilterCommand {
   description: string;
   // body: string;
   // date: Date;
-  // category: string;
+  category: string;
   // author: string; // type Author
 
   public static fromObject(data: any): NewsFilterCommand {
@@ -14,7 +14,7 @@ export class NewsFilterCommand {
     cmd.description = data.description;
     // cmd.body = data.body;
     // cmd.date = data.date;
-    // cmd.category = data.category;
+    cmd.category = data.category;
     // cmd.author = data.author;
 
     return cmd;
