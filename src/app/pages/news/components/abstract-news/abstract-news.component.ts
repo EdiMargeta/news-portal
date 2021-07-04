@@ -85,6 +85,7 @@ export class AbstractNewsComponent extends MainComponent implements OnInit {
           // this.notification.success(this.translation.translate('common.success'),
           //   this.translation.translate('common.action.success'));
         } else {
+          this.newsArticles = [];
           // this.notification.error(this.translation.translate('common.error'), response.error.message);
         }
       });

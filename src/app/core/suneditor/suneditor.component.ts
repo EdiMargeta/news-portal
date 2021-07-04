@@ -56,7 +56,7 @@ export class SuneditorComponent implements OnInit {
     this.form.controls.body.setValue(this.editor.getContents());
     console.log('form');
 
-    console.log( this.form.value);
+    console.log('this form value', this.form.value);
 
     if (this.form.valid && this.editor.getContents().length > 20) {
       console.log('Šaljem');
@@ -66,7 +66,9 @@ export class SuneditorComponent implements OnInit {
   }
 
   storeUploadedImage(coverImage: string): void {
-    console.log('coverImage', coverImage);
+    console.log('coverImage');
+    console.log(coverImage);
+
     this.form.controls.coverImage.setValue(coverImage);
 
   }

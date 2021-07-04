@@ -1,13 +1,13 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Router} from '@angular/router';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {SpinnerProvider} from '../../../../../../core/providers/spinner.provider';
-import {NewsArticleModel} from '../../../../../../models/news/model/news-article.model';
-import {NewsProvider} from '../../../../providers/news.provider';
-import {ApiCommand, ApiResponse} from '../../../../../../models/base/api.model';
-import {NewsArticleSaveCommand} from '../../../../../../models/news/command/save/news-article-save.command';
+import {SpinnerProvider} from '../../../../core/providers/spinner.provider';
+import {NewsArticleModel} from '../../../../models/news/model/news-article.model';
+import {NewsProvider} from '../../providers/news.provider';
+import {ApiCommand, ApiResponse} from '../../../../models/base/api.model';
+import {NewsArticleSaveCommand} from '../../../../models/news/command/save/news-article-save.command';
 import {finalize, takeUntil} from 'rxjs/operators';
-import {MainComponent} from '../../../../../../core/main.component';
+import {MainComponent} from '../../../../core/main.component';
 
 @Component({
   selector: 'app-create-news',
@@ -25,7 +25,7 @@ export class CreateNewsComponent extends MainComponent implements OnInit {
   }
 
   onSaveArticle(incomingForm: FormGroup): void {
-    console.log(new ApiCommand<NewsArticleSaveCommand>(NewsArticleSaveCommand.fromObject(incomingForm.value)));
+    console.log('on save article', new ApiCommand<NewsArticleSaveCommand>(NewsArticleSaveCommand.fromObject(incomingForm.value)));
     console.log('save');
 
     this.spinnerProvider.showSpinner();

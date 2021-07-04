@@ -5,10 +5,11 @@
     nzListType="picture"
     [(nzFileList)]="previewImage"
     [nzDisabled]="previewImage?.length >= 1"
-    (change)="emitImage()"
+    (nzChange)="emitImage()"
   >
     <button nz-button>
       <span><i nz-icon nzType="upload"></i> Upload</span>
     </button>
   </nz-upload>
 </div>
+<!--<button (click)="send()">qweqwe</button>-->
