@@ -11,15 +11,21 @@ import {SidebarComponent} from './components/core/sidebar/sidebar.component';
 import {QuillModule} from 'ngx-quill';
 import {NewsProvider} from './providers/news.provider';
 import {CreateNewsComponent} from './components/create-news/create-news.component';
-import { AllNewsComponent } from './components/all-news/all-news.component';
-import {SuneditorComponent} from '../../core/suneditor/suneditor.component';
-import {FormGroup, FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {BrowserModule} from '@angular/platform-browser';
+import {AllNewsComponent} from './components/all-news/all-news.component';
 import {SuneditorModule} from '../../core/suneditor/suneditor.module';
+import {ArticleDetailsComponent} from './components/article-details/article-details.component';
 
 
 @NgModule({
-  declarations: [NewsComponent, AbstractNewsComponent, MainCoverComponent, MainBodyComponent, SidebarComponent, CreateNewsComponent, AllNewsComponent],
+  declarations: [
+    NewsComponent,
+    AbstractNewsComponent,
+    MainCoverComponent,
+    MainBodyComponent,
+    SidebarComponent,
+    CreateNewsComponent,
+    AllNewsComponent,
+    ArticleDetailsComponent],
   exports: [
     AbstractNewsComponent
   ],

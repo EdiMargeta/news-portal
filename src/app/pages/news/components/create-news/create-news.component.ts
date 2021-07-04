@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {SpinnerProvider} from '../../../../core/providers/spinner.provider';
 import {NewsArticleModel} from '../../../../models/news/model/news-article.model';
@@ -16,12 +16,25 @@ import {MainComponent} from '../../../../core/main.component';
 })
 export class CreateNewsComponent extends MainComponent implements OnInit {
   form: FormGroup;
+  articleId: number;
+  article: NewsArticleModel;
 
-  constructor(private spinnerProvider: SpinnerProvider, private newsProvider: NewsProvider) {
+  constructor(private spinnerProvider: SpinnerProvider,
+              private newsProvider: NewsProvider,
+              private activatedRoute: ActivatedRoute) {
     super();
   }
 
   ngOnInit(): void {
+    this.activatedRoute.queryParams.subscribe(params => {
+      if (params.id) {
+        this.articleId = params.id;
+        this.getArticle();
+      }
+      console.log('params');
+      console.log(params.id);
+      // In a real app: dispatch action to load the details here.
+    });
   }
 
   onSaveArticle(incomingForm: FormGroup): void {
@@ -47,5 +60,25 @@ export class CreateNewsComponent extends MainComponent implements OnInit {
       });
   }
 
+  getArticle(): void {
+    this.spinnerProvider.showSpinner();
+    this.newsProvider.get(this.articleId)
+      .pipe(
+        takeUntil(this.unsubscribe),
+        finalize(() => {
+          this.spinnerProvider.showSpinner(false);
+        })
+      )
+      .subscribe((response: ApiResponse<any>) => {
+        if (response.success) {
+          this.article = NewsArticleModel.fromObject(response.response);
+          console.log('fetched article', this.article);
+          // this.notification.success(this.translation.translate('common.success'),
+          //   this.translation.translate('common.action.success'));
+        } else {
+          // this.notification.error(this.translation.translate('common.error'), response.error.message);
+        }
+      });
+  }
 
 }

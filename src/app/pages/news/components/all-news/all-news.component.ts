@@ -74,20 +74,21 @@ export class AllNewsComponent extends MainComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getRecentNews();
   }
 
-  fetchNews(): void {
+  getRecentNews(): void {
     this.spinnerProvider.showSpinner();
-    this.newsProvider.fetchNews(new ApiPageCommand(this.pagination, NewsFilterCommand.fromObject({category: 'politics'})))
+    this.newsProvider.fetchLastThreeEachCategory()
       .pipe(
         takeUntil(this.unsubscribe),
         finalize(() => {
           this.spinnerProvider.showSpinner(false);
         })
       )
-      .subscribe((response: ApiResponse<any>) => {
-        if (response.success) {
-          this.newsArticles = NewsArticleModel.fromArray(response.response);
+      .subscribe((response: any) => {
+        if (response) {
+          this.newsArticles = NewsArticleModel.fromArray(response);
           console.log(this.newsArticles);
           // this.notification.success(this.translation.translate('common.success'),
           //   this.translation.translate('common.action.success'));

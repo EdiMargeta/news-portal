@@ -1,6 +1,6 @@
     <nz-row>
       <nz-col [nzLg]="8" [nzMd]="12" [nzSm]="24" *ngFor="let image of bodyImages">
-        <div class="body-image" >
+        <div class="body-image" [routerLink]="['../details']" [queryParams]="{id: image.id}">
           <div class="wrapper">
             <div class="card radius shadowDepth1">
               <div class="card__image border-tlr-radius">
@@ -9,6 +9,10 @@
               <div class="card__content card__padding">
                 <div class="card__share">
                   <a id="share" class="share-toggle share-icon" href="#"></a>
+                </div>
+                <div class="card__edit">
+<!--TODO if user is admin (or who ever can edit)-->
+                  <a id="edit" class="share-icon" [routerLink]="['../edit-article']" [queryParams]="{id: image.id}">Edit</a>
                 </div>
                 <div class="card__meta">
                   <p>{{image.date}}</p>

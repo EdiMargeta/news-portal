@@ -5,14 +5,17 @@ import {PageNotFoundComponent} from '../../core/page-not-found/page-not-found.co
 import {CreateNewsComponent} from './components/create-news/create-news.component';
 import {AbstractNewsComponent} from './components/abstract-news/abstract-news.component';
 import {AllNewsComponent} from './components/all-news/all-news.component';
+import {ArticleDetailsComponent} from './components/article-details/article-details.component';
 
 const routes: Routes = [
   {
     path: '', component: NewsComponent,
     children: [
       {path: 'create-article', component: CreateNewsComponent},
+      {path: 'edit-article', component: CreateNewsComponent},
       {path: '', component: AllNewsComponent},
       {path: 'category', component: AbstractNewsComponent},
+      {path: 'details', component: ArticleDetailsComponent},
       {path: '**', component: PageNotFoundComponent},
     ],
   },

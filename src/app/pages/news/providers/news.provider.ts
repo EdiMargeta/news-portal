@@ -14,12 +14,18 @@ export class NewsProvider {
   }
 
   saveTourismArticle(command: ApiCommand<NewsArticleSaveCommand>): Observable<ApiResponse<any>> {
-    console.log("COMMAND", command);
     return this.http.post<ApiResponse<any>>(this.NEWS_URL + '/save', command);
   }
 
   fetchNews(command: ApiPageCommand<NewsFilterCommand>): Observable<ApiPageResponse<any>> {
-    console.log("COMMAND", command);
-    return this.http.post<ApiPageResponse<any>>(this.NEWS_URL + '/filterAll', command);
+    return this.http.post<ApiPageResponse<any>>(this.NEWS_URL + '/filter-all-by-category', command);
+  }
+
+  fetchLastThreeEachCategory(): Observable<ApiResponse<any>> {
+    return this.http.get<ApiResponse<any>>(this.NEWS_URL + '/filter-all-recent');
+  }
+
+  get(id: number): Observable<any> {
+    return this.http.get<any>(this.NEWS_URL + '/' + id);
   }
 }

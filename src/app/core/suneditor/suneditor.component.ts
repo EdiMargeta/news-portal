@@ -3,6 +3,7 @@ import 'suneditor/dist/css/suneditor.min.css';
 import suneditor from 'suneditor';
 import plugins from 'suneditor/src/plugins';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {NewsArticleModel} from '../../models/news/model/news-article.model';
 
 @Component({
   selector: 'app-suneditor-editor',
@@ -16,6 +17,18 @@ export class SuneditorComponent implements OnInit {
   @Output() formOutput = new EventEmitter();
   form: FormGroup;
   categories: string[] = ['tourism', 'politics', 'culture', 'inheritence', 'sport', 'entertainment'];
+
+  @Input() set article(article: NewsArticleModel) {
+  console.log('value', article);
+  if(this.form) {
+    this.form.controls.id.setValue(article.id);
+    this.form.controls.headline.setValue(article.headline);
+    this.form.controls.description.setValue(article.description);
+    this.form.controls.category.setValue(article.category);
+    this.form.controls.coverImage.setValue(article.coverImage);
+    this.editor.setContents(article.body);
+  }
+  }
 
   constructor() {
   }
@@ -40,12 +53,14 @@ export class SuneditorComponent implements OnInit {
       ],
     });
     this.form = new FormGroup({
+      id: new FormControl(null ),
       headline: new FormControl(null, [Validators.required]),
       description: new FormControl(null, [Validators.required]),
       body: new FormControl(null, [Validators.required]),
       category: new FormControl(null, [Validators.required]),
       coverImage: new FormControl(null, [Validators.required]),
     });
+  console.log("test");
   }
 
   onSave(): any {
@@ -54,13 +69,7 @@ export class SuneditorComponent implements OnInit {
       this.form.controls[i].updateValueAndValidity();
     }
     this.form.controls.body.setValue(this.editor.getContents());
-    console.log('form');
-
-    console.log('this form value', this.form.value);
-
     if (this.form.valid && this.editor.getContents().length > 20) {
-      console.log('Šaljem');
-
       this.formOutput.emit(this.form);
     }
   }

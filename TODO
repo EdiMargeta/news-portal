@@ -1,0 +1,1 @@
+News Lists include data that are not required such as body. remove those as they should only be included on create/details page
