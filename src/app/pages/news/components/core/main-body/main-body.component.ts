@@ -7,7 +7,7 @@ import {NewsArticleModel} from '../../../../../models/news/model/news-article.mo
   styleUrls: ['./main-body.component.css']
 })
 export class MainBodyComponent implements OnInit {
-  @Input() bodyImages: NewsArticleModel[];
+  @Input() newsArticles: NewsArticleModel[];
 
   constructor() { }
 

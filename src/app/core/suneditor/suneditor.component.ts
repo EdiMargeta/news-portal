@@ -35,7 +35,7 @@ export class SuneditorComponent implements OnInit {
 
   ngOnInit(): void {
     this.editor = suneditor.create((document.getElementById('sun-editor-editable') || 'sun-editor-editable'), {
-      plugins: plugins,
+      plugins,
       buttonList: [
         ['undo', 'redo'],
         ['font', 'fontSize', 'formatBlock'],
