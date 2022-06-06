@@ -10,7 +10,6 @@ import {NzLayoutModule} from 'ng-zorro-antd/layout';
 import {NzGridModule, NzSpinModule} from 'ng-zorro-antd';
 import {IconsProviderModule} from './icons-provider.module';
 import {AppCoreModule} from './core/app-core.module';
-import {QuillModule} from 'ngx-quill';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 registerLocaleData(en);
@@ -28,7 +27,6 @@ registerLocaleData(en);
     AppCoreModule,
     NzGridModule,
     NzSpinModule,
-    QuillModule.forRoot(),
     BrowserAnimationsModule
 
   ],

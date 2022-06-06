@@ -8,7 +8,7 @@ import {NewsFilterCommand} from '../../../models/news/command/filter/news-filter
 
 @Injectable()
 export class NewsProvider {
-  private readonly NEWS_URL = environment.apiUrl + 'news';
+  private readonly NEWS_URL = environment.apiUrl + '/news-portal';
 
   constructor(private http: HttpClient) {
   }
@@ -19,6 +19,10 @@ export class NewsProvider {
 
   fetchNews(command: ApiPageCommand<NewsFilterCommand>): Observable<ApiPageResponse<any>> {
     return this.http.post<ApiPageResponse<any>>(this.NEWS_URL + '/filter-all-by-category', command);
+  }
+
+  fetchWorldNews(): Observable<ApiResponse<any>> {
+    return this.http.get<ApiResponse<any>>(this.NEWS_URL + '/world-news');
   }
 
   fetchLastThreeEachCategory(): Observable<ApiResponse<any>> {

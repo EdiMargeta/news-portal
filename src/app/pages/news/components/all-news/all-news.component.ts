@@ -29,7 +29,8 @@ export class AllNewsComponent extends MainComponent implements OnInit {
     {url: 'culture', name: 'Kultura'},
     {url: 'inheritance', name: 'Baština'},
     {url: 'sport', name: 'Sport'},
-    {url: 'entertainment', name: 'Zabava'}
+    {url: 'entertainment', name: 'Zabava'},
+
   ];
   array = [1, 2, 3, 4];
   // @Input() newsArticles: NewsArticleModel[];
@@ -97,4 +98,5 @@ export class AllNewsComponent extends MainComponent implements OnInit {
         }
       });
   }
+
 }

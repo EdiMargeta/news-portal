@@ -21,7 +21,8 @@ export class NewsComponent extends MainComponent implements OnInit {
     {url: 'culture', name: 'Kultura'},
     {url: 'inheritance', name: 'Baština'},
     {url: 'sport', name: 'Sport'},
-    {url: 'entertainment', name: 'Zabava'}
+    {url: 'entertainment', name: 'Zabava'},
+    {url: 'world', name: 'Svijet'}
   ];
   imageSlider = [
     {image: 'https://images.squarespace-cdn.com/content/v1/5f21b11aaf514f59e25e0dfa/1596126419368-1C8987NZNDXA5P4PFO25/ke17ZwdGBToddI8pDm48kDk1dm1oSR9gCa1mX4KqzjN7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0luj0xCD0oh5KMc0gpox0u-wQWxfQHg04OxgQwaUq2yiAcNt5Kg2tE9yEtYfM4xwaw/image-asset.jpeg?format=2500w'},

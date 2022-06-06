@@ -8,7 +8,6 @@ import {AbstractNewsComponent} from './components/abstract-news/abstract-news.co
 import {MainCoverComponent} from './components/core/main-cover/main-cover.component';
 import {MainBodyComponent} from './components/core/main-body/main-body.component';
 import {SidebarComponent} from './components/core/sidebar/sidebar.component';
-import {QuillModule} from 'ngx-quill';
 import {NewsProvider} from './providers/news.provider';
 import {CreateNewsComponent} from './components/create-news/create-news.component';
 import {AllNewsComponent} from './components/all-news/all-news.component';
@@ -38,7 +37,6 @@ import {ArticleDetailsComponent} from './components/article-details/article-deta
     NzCarouselModule,
     NzCardModule,
     NzButtonModule,
-    QuillModule.forRoot()
   ],
   providers: [NewsProvider]
 })

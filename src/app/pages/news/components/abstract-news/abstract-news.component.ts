@@ -61,7 +61,12 @@ export class AbstractNewsComponent extends MainComponent implements OnInit {
     this.activatedRoute.queryParams.subscribe(params => {
       if (params.category) {
         this.activeCategory = params.category;
-        this.fetchNews();
+        if (this.activeCategory !== 'world') {
+          this.fetchNews();
+        }
+        else {
+          this.fetchWorldNews();
+        }
       }
       console.log('params');
       console.log(params.category);
@@ -81,6 +86,28 @@ export class AbstractNewsComponent extends MainComponent implements OnInit {
       .subscribe((response: ApiResponse<any>) => {
         if (response.success) {
           this.newsArticles = NewsArticleModel.fromArray(response.response);
+          console.log(this.newsArticles);
+          // this.notification.success(this.translation.translate('common.success'),
+          //   this.translation.translate('common.action.success'));
+        } else {
+          this.newsArticles = [];
+          // this.notification.error(this.translation.translate('common.error'), response.error.message);
+        }
+      });
+  }
+
+  fetchWorldNews(): void {
+    this.spinnerProvider.showSpinner();
+    this.newsProvider.fetchWorldNews()
+      .pipe(
+        takeUntil(this.unsubscribe),
+        finalize(() => {
+          this.spinnerProvider.showSpinner(false);
+        })
+      )
+      .subscribe((response: any) => {
+        if (response) {
+          this.newsArticles = NewsArticleModel.fromArray(response);
           console.log(this.newsArticles);
           // this.notification.success(this.translation.translate('common.success'),
           //   this.translation.translate('common.action.success'));

@@ -20,7 +20,6 @@
     "@angular/platform-browser-dynamic": "^11.2.10",
     "@angular/router": "^11.2.10",
     "@ant-design/icons": "^4.6.2",
-    "@types/quill": "^1.3.10",
     "ng-zorro-antd": "^9.3.0",
     "rxjs": "^6.6.7",
     "suneditor": "^2.38.3",
