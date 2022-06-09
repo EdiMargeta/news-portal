@@ -13,6 +13,7 @@ import {CreateNewsComponent} from './components/create-news/create-news.componen
 import {AllNewsComponent} from './components/all-news/all-news.component';
 import {SuneditorModule} from '../../core/suneditor/suneditor.module';
 import {ArticleDetailsComponent} from './components/article-details/article-details.component';
+import { AllNewsBodyComponent } from './components/all-news/all-news-body/all-news-body.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import {ArticleDetailsComponent} from './components/article-details/article-deta
     SidebarComponent,
     CreateNewsComponent,
     AllNewsComponent,
-    ArticleDetailsComponent],
+    ArticleDetailsComponent,
+    AllNewsBodyComponent],
   exports: [
     AbstractNewsComponent
   ],

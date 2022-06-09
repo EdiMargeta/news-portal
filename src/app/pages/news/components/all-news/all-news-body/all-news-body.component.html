@@ -1,0 +1,63 @@
+  <nz-row [nzGutter]="12">
+  <nz-col [nzLg]="12" [nzMd]="12" [nzSm]="12" *ngFor="let article of newsArticles; let i = index">
+<!--
+<div class="blog-card">
+-->
+<!--    <div [ngClass]="{'blog-card':'i%2==0', 'blog-card alt':'i%2!=0'}">-->
+    <div [ngClass]="i%2==0? 'blog-card':'blog-card alt'">
+      <div class="meta">
+        <div class="photo"
+             style="background-image: url(https://storage.googleapis.com/chydlx/codepen/blog-cards/image-1.jpg)"></div>
+        <ul class="details">
+          <li class="author"><a href="#">{{ article.author }}</a></li>
+          <li class="date">{{ article.date }}</li>
+          <li class="tags">
+            <ul>
+              <li><a href="#">{{ article.category }}</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div style="width: 30%" class="description">
+        <h1 style="word-break: break-word">{{ article.headline }}</h1>
+        <h2 style="word-break: break-word">{{ article.description }}</h2>
+        <p style="word-break: break-word" [innerHTML]="article?.body"></p>
+        <p class="read-more">
+          <a href="#">Read More</a>
+        </p>
+      </div>
+    </div>
+  </nz-col>
+</nz-row>
+
+
+<!--<nz-row [nzGutter]="12">
+  <nz-col [nzLg]="12" [nzMd]="12" [nzSm]="12"   *ngFor="let article of newsArticles">
+    <div class="blog-card alt">
+      <div class="meta">
+        <div class="photo"
+             style="background-image: url(https://storage.googleapis.com/chydlx/codepen/blog-cards/image-2.jpg)"></div>
+        <ul class="details">
+          <li class="author"><a href="#">Jane Doe</a></li>
+          <li class="date">July. 15, 2015</li>
+          <li class="tags">
+            <ul>
+              <li><a href="#">Learn</a></li>
+              <li><a href="#">Code</a></li>
+              <li><a href="#">JavaScript</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="description">
+        <h1>Mastering the Language</h1>
+        <h2>Java is not the same as JavaScript</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eum dolorum architecto obcaecati enim dicta
+          praesentium, quam nobis! Neque ad aliquam facilis numquam. Veritatis, sit.</p>
+        <p class="read-more">
+          <a href="#">Read More</a>
+        </p>
+      </div>
+    </div>
+  </nz-col>
+</nz-row>-->
