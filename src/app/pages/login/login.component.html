@@ -1,0 +1,41 @@
+<!--<img src="assets/images/LogoHiveTech.png" alt="logo">-->
+<nz-card [nzBordered]="false" class="bg-transparent">
+  <nz-col nzSpan="24">
+    <nz-row nzType="flex" style="min-height: 650px" nzAlign="middle" nzJustify="center" [nzGutter]="24">
+      <nz-col [nzXs]="24" [nzSm]="24" [nzMd]="24" [nzLg]="24" [nzXl]="12" [nzXXl]="10">
+        <h1 style="text-align: center" class="text-white font-size-xxl">Login</h1>
+        <form nz-form [formGroup]="loginForm" (ngSubmit)="onLoginClick()" class="w-100">
+          <nz-form-item>
+            <nz-form-control nzErrorTip="Invalid email">
+              <nz-input-group>
+                <input type="text" id="email" nz-input nzSize="large" style="height: 48px;"
+                       formControlName="email"
+                       placeholder="Email"/>
+              </nz-input-group>
+            </nz-form-control>
+          </nz-form-item>
+          <nz-form-item>
+            <nz-form-control nzErrorTip="Password missing">
+              <nz-input-group>
+                <input type="password" id="password" nzSize="large" style="height: 48px;" nz-input
+                       formControlName="password" placeholder="Password"/>
+              </nz-input-group>
+            </nz-form-control>
+          </nz-form-item>
+          <nz-form-item>
+            <nz-form-control>
+              <b style="color: #ff0000;" *ngIf="loginError">Error</b>
+              <div nz-row nzType="flex">
+                <div nz-col nzSpan="24">
+                  <button class="w-100" nz-button [nzType]="'primary'" nzSize="large" style="height:48px" type="submit"
+                          [nzLoading]="isLoading" [disabled]="!loginForm.valid">Login
+                  </button>
+                </div>
+              </div>
+            </nz-form-control>
+          </nz-form-item>
+        </form>
+      </nz-col>
+    </nz-row>
+  </nz-col>
+</nz-card>

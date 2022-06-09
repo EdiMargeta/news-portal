@@ -1,15 +1,25 @@
-import {Component, OnInit} from '@angular/core';
 import {MainComponent} from '../main.component';
+import {Component, OnInit} from '@angular/core';
+import {Store} from '@ngxs/store';
+import {Router} from '@angular/router';
+import {LoginProvider} from '../../pages/login/providers/login.provider';
+import {takeUntil} from 'rxjs/operators';
+import {ApiResponse} from '../../models/base/api.model';
+import {LogoutUser} from '../state/actions/auth.actions';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent extends MainComponent implements OnInit {
   username = '';
 
-  constructor() {
+  constructor(private store: Store,
+              private router: Router,
+              private loginProvider: LoginProvider
+  ) {
+    super();
   }
 
   ngOnInit(): void {
@@ -17,16 +27,19 @@ export class HeaderComponent implements OnInit {
   }
 
   //
-  // public logoutUser(): void {
-  //   this.authProvider.logoutUser().pipe(takeUntil(this.unsubscribe))
-  //     .subscribe((response) => {
-  //       if (response.success && response.response) {
-  //         this.router.navigate([ LOGIN_ROUTE ]);
-  //       } else {
-  //         throw new Error(`Logout failed. response.success: ${ response.success }; response.response: ${ response.response }`);
-  //       }
-  //     });
-  // }
+  logoutUser(): void {
+    this.loginProvider.logoutUser()
+      .pipe(takeUntil(this.unsubscribe))
+      .subscribe((response: ApiResponse<boolean>) => {
+        if (response) {
+          this.store.dispatch(new LogoutUser());
+          this.loginProvider.removeTokens();
+          this.router.navigate([ '/' ]);
+        } else {
+          // An error has occured
+        }
+      });
+  }
   //
   // editCompany(item?: CompanyModel): void {
   //   const ref = this.drawerService.create({

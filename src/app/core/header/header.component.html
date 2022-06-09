@@ -20,9 +20,13 @@
             <i nz-icon nzType="poweroff"></i>
             change password
           </li>
-          <li nz-menu-item>
+          <li nz-menu-item (click)="logoutUser()">
             <i nz-icon nzType="poweroff"></i>
             logout
+          </li>
+          <li nz-menu-item [routerLink]="'/users'">
+            <i nz-icon nzType="poweroff"></i>
+            users
           </li>
         </ul>
       </nz-dropdown-menu>

@@ -1,5 +1,6 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {NzMessageService} from 'ng-zorro-antd';
+import {Component, OnInit, Output} from '@angular/core';
+import EventEmitter from 'events';
 
 function getBase64(file: File): Promise<string | ArrayBuffer | null> {
   return new Promise((resolve, reject) => {
