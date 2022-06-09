@@ -1,8 +1,32 @@
 <ul nz-menu nzMode="horizontal" style="text-align: center; font-size: 18px;">
   <ng-container *ngFor="let item of mockUrl">
-    <li nz-menu-item [routerLink]="item?.url">
+    <!--    <li nz-menu-item [routerLink]="item?.url">-->
+    <li nz-menu-item [routerLink]="['category']" [queryParams]="{category: item.url}">
+<!--    <li nz-menu-item (click)="doSearch(item.url)">-->
+
       <span>{{ item.name }}</span>
     </li>
   </ng-container>
 </ul>
 <router-outlet></router-outlet>
+<!--&lt;!&ndash;This part is only for ADMIN&ndash;&gt;-->
+<!--<nz-row nzJustify="end" style="padding-right: 50px; padding-top: 50px">-->
+<!--  <button [routerLink]="'/news/create-article'" nz-button nzType="primary">Create News</button>-->
+<!--</nz-row>-->
+<!--&lt;!&ndash;end&ndash;&gt;-->
+<!--<app-main-cover [imageSlider]="imageSlider" [imageSideTop]="imageSideTop"></app-main-cover>-->
+
+<!--<nz-row nzType="flex" style="padding: 25px 0 0 25px">-->
+
+<!--  <nz-col [nzLg]="18" [nzMd]="24">-->
+<!--    <app-main-body *ngIf="activeCategory != 'all-news'" [bodyImages]="newsArticles"></app-main-body>-->
+<!--  </nz-col>-->
+<!--  <nz-col [nzLg]="18" [nzMd]="24">-->
+<!--    <app-all-news *ngIf="activeCategory == 'all-news'"></app-all-news>-->
+<!--  </nz-col>-->
+
+<!--  <nz-col [nzLg]="6" [nzMd]="24">-->
+<!--    <app-sidebar [imageSlider]="imageSlider"></app-sidebar>-->
+<!--  </nz-col>-->
+<!--</nz-row>-->
+

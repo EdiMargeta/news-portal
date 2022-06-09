@@ -20,11 +20,13 @@ import {RouterModule} from '@angular/router';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ImageUploadComponent } from './image-upload/image-upload.component';
+import {StateModule} from './state/state/state.module';
 
 @NgModule({
   declarations: [HeaderComponent, SideMenuComponent, MainComponent, PageNotFoundComponent, ImageUploadComponent],
   imports: [
     CommonModule,
+    StateModule,
     NzLayoutModule,
     NzMenuModule,
     NzIconModule,

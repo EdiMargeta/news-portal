@@ -1,0 +1,65 @@
+<nz-row [nzGutter]="12">
+  <nz-col [nzLg]="12" [nzMd]="12" [nzSm]="12" *ngFor="let article of newsArticles; let i = index">
+    <div [ngClass]="i%2==0? 'blog-card':'blog-card alt'">
+      <div class="meta">
+        <div class="photo"
+             style="background-image: url(https://storage.googleapis.com/chydlx/codepen/blog-cards/image-1.jpg)"></div>
+        <ul class="details">
+          <li class="author"><a href="#">{{ article.author }}</a></li>
+          <li class="date">{{ article.date }}</li>
+          <li class="tags">
+            <ul>
+              <li><a href="#">{{ article.category }}</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="description">
+        <h1>{{ article.headline }}</h1>
+        <h2>{{ article.description }}</h2>
+        <p [innerHTML]="article?.body"></p>
+        <p class="read-more">
+          <a href="#">Read More</a>
+        </p>
+      </div>
+    </div>
+  </nz-col>
+</nz-row>
+
+<!--    <nz-row>-->
+<!--      <nz-col [nzLg]="8" [nzMd]="12" [nzSm]="24" *ngFor="let image of bodyImages">-->
+<!--        <div class="body-image" [routerLink]="['../details']" [queryParams]="{id: image.id}">-->
+<!--          <div class="wrapper">-->
+<!--            <div class="card radius shadowDepth1">-->
+<!--              <div class="card__image border-tlr-radius">-->
+<!--                <img src="{{image.coverImage}}">-->
+<!--              </div>-->
+<!--              <div class="card__content card__padding">-->
+<!--                <div class="card__share">-->
+<!--                  <a id="share" class="share-toggle share-icon" href="#"></a>-->
+<!--                </div>-->
+<!--                <div class="card__edit">-->
+<!--&lt;!&ndash;TODO if user is admin (or who ever can edit)&ndash;&gt;-->
+<!--                  <a id="edit" class="share-icon" [routerLink]="['../edit-article']" [queryParams]="{id: image.id}">Edit</a>-->
+<!--                </div>-->
+<!--                <div class="card__meta">-->
+<!--                  <p>{{image.date}}</p>-->
+<!--                </div>-->
+<!--                <article class="card__article">-->
+<!--                  <h2><a href="#">{{image.headline}}</a></h2>-->
+<!--                  <p>{{image.description}}</p>-->
+<!--                </article>-->
+<!--              </div>-->
+<!--              <div class="card__action">-->
+<!--                <div class="card__author">-->
+<!--                  <div class="card__author-content">-->
+<!--                    By <a href="#">{{image.author}}</a>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+
+<!--      </nz-col>-->
+<!--    </nz-row>-->

@@ -1,14 +1,14 @@
 <!--This part is only for ADMIN-->
-<nz-row nzJustify="end" style="padding-right: 50px; padding-top: 50px">
+<nz-row nzJustify="end">
   <button [routerLink]="'/news/create-article'" nz-button nzType="primary">Create News</button>
 </nz-row>
 <!--end-->
-<app-main-cover [imageSlider]="imageSlider" [imageSideTop]="imageSideTop"></app-main-cover>
+<app-main-cover style="padding: 50px" [imageSlider]="imageSlider" [imageSideTop]="imageSideTop"></app-main-cover>
 
-<nz-row nzType="flex" style="padding: 25px 0 0 25px">
+<nz-row nzType="flex" style="padding: 0 0 0 25px">
 
   <nz-col [nzLg]="18" [nzMd]="24">
-    <app-main-body [bodyImages]="bodyImages"></app-main-body>
+    <app-main-body [newsArticles]="newsArticles"></app-main-body>
   </nz-col>
 
   <nz-col [nzLg]="6" [nzMd]="24">
@@ -16,3 +16,4 @@
   </nz-col>
 
 </nz-row>
+

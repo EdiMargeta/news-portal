@@ -1,7 +1,7 @@
 <nz-row nzType="flex" nzJustify="end">
   <nz-col nzSpan="24">
     <nz-row nzType="flex" nzJustify="end">
-      <span class="text-secondary">
+      <span class="text-primary">
         welcome
         <span class="text-primary font-weight-bold mr-2">
           "username"
@@ -20,9 +20,13 @@
             <i nz-icon nzType="poweroff"></i>
             change password
           </li>
-          <li nz-menu-item>
+          <li nz-menu-item (click)="logoutUser()">
             <i nz-icon nzType="poweroff"></i>
             logout
+          </li>
+          <li nz-menu-item [routerLink]="'/users'">
+            <i nz-icon nzType="poweroff"></i>
+            users
           </li>
         </ul>
       </nz-dropdown-menu>

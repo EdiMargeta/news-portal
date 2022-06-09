@@ -35,14 +35,11 @@
             "styles": [
               "./node_modules/suneditor/src/assets/css/suneditor-contents.css",
               "./node_modules/suneditor/src/assets/css/suneditor.css",
-              "./node_modules/suneditor/src/assets/css/suneditor-contents.css",
-
               "src/styles.css"
             ],
             "scripts": [
               "node_modules/suneditor/dist/css/suneditor.min.css",
               "node_modules/suneditor/dist/suneditor.min.js"
-
             ]
           },
           "configurations": {
@@ -78,7 +75,9 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "news-portal:build"
+            "browserTarget": "news-portal:build",
+            "proxyConfig": "src/proxy-conf.json",
+            "port": 4200
           },
           "configurations": {
             "production": {

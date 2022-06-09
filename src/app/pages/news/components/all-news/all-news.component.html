@@ -1,0 +1,20 @@
+<!--This part is only for ADMIN-->
+<nz-row nzJustify="end" style="padding-right: 50px; padding-top: 50px">
+  <button [routerLink]="'/news/create-article'" nz-button nzType="primary">Create News</button>
+</nz-row>
+<!--end-->
+<app-main-cover [imageSlider]="imageSlider" [imageSideTop]="imageSideTop"></app-main-cover>
+
+<nz-row nzType="flex" style="padding: 0 0 0 25px">
+  <!--TODO All news to implement-->
+
+  <nz-col [nzLg]="18" [nzMd]="24">
+<app-all-news-body [newsArticles]="newsArticles"></app-all-news-body>
+  </nz-col>
+
+  <nz-col [nzLg]="6" [nzMd]="24">
+    <app-sidebar [imageSlider]="imageSlider"></app-sidebar>
+  </nz-col>
+
+</nz-row>
+

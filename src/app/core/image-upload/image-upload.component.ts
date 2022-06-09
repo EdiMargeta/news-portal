@@ -1,5 +1,6 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {NzMessageService} from 'ng-zorro-antd';
+import {Component, OnInit, Output} from '@angular/core';
+import EventEmitter from 'events';
 
 function getBase64(file: File): Promise<string | ArrayBuffer | null> {
   return new Promise((resolve, reject) => {
@@ -29,10 +30,9 @@ export class ImageUploadComponent implements OnInit {
 
   //TODO uploading doesnt work. It probably tries to emit before there is actual data in preview image. In inspect thumbUrl is full, in console it is empty. Try different approach
   emitImage(): void {
-    console.log('this.previewImage[0].thumbUrl');
-
-    console.log(this.previewImage);
-    let test = this.previewImage[0].thumbUrl;
-    this.uploadedImage.emit(test);
+    console.log('preview image', this.previewImage);
+    // const test = this.previewImage[0].thumbUrl;
+    this.uploadedImage.emit(this.previewImage[0].thumbUrl);
   }
+
 }

@@ -12,6 +12,9 @@ export class SpinnerProvider {
   showSpinner(show: boolean = true): void {
     this.spinner.next(show);
   }
+  turnOffSpinner(): void {
+    this.spinner.next(false);
+  }
 
 }
 
